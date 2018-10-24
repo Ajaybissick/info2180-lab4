@@ -7,4 +7,11 @@ window.onload = function(){
 				}
 			});
 	}
+
+	var end = document.getElementById("end");
+	end.addEventListener("mouseover", function(){
+		if (document.getElementsByClassName("youlose").length == 0){
+			alert("You Win!!");
+		}
+	});
 }
