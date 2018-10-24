@@ -1,6 +1,10 @@
 window.onload = function(){
-	let wallboundary = document.getElementById("boundary1");
-	wallboundary.addEventListener("mouseover", function(){
-		wallboundary.className = "boundary youlose";
-	});
+	let wallboundaries = document.querySelectorAll(".boundary");
+	for(var i = 0; i < wallboundaries.length; i++){
+			wallboundaries[i].addEventListener("mouseover", function(){
+				for(var i = 0; i < wallboundaries.length; i++){
+						wallboundaries[i].className = "boundary youlose";
+				}
+			});
+	}
 }
