@@ -8,12 +8,12 @@ window.onload = function(){
 			});
 	}
 
-	var end = document.getElementById("end");
+	/*var end = document.getElementById("end");
 	end.addEventListener("mouseover", function(){
 		if (document.getElementsByClassName("youlose").length == 0){
 			alert("You Win!!");
 		}
-	});
+	});*/
 
 	var start = document.getElementById("start");
 	var status = document.getElementById("status");
@@ -28,5 +28,16 @@ window.onload = function(){
 			}
 
 			status.textContent = "Move your mouse over the \"S\" to begin.";
+	});
+
+	var end = document.getElementById("end");
+	var status = document.getElementById("status");
+
+	end.addEventListener("mouseover", function(){
+		if(document.querySelectorAll(".youlose").length == 0){
+			status.textContent = "You win!";
+		}else{
+			status.textContent = "You lose!"
+		}
 	});
 }
