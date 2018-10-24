@@ -1,10 +1,14 @@
 window.onload = function(){
+
 	let wallboundaries = document.querySelectorAll(".boundary");
+
 	for(var i = 0; i < wallboundaries.length; i++){
 			wallboundaries[i].addEventListener("mouseover", function(){
 				for(var i = 0; i < wallboundaries.length; i++){
 						wallboundaries[i].className = "boundary youlose";
+
 				}
+				document.getElementById("status").textContent = "You lose!"
 			});
 	}
 
@@ -36,8 +40,22 @@ window.onload = function(){
 	end.addEventListener("mouseover", function(){
 		if(document.querySelectorAll(".youlose").length == 0){
 			status.textContent = "You win!";
-		}else{
-			status.textContent = "You lose!"
 		}
+	});
+
+	let cheatCheck = document.getElementById("start");
+	let maze = document.getElementById("maze");
+
+	cheatCheck.addEventListener("mouseout", function(){
+		maze.addEventListener("mouseleave", function(){
+			for(var i = 0; i < wallboundaries.length; i++){
+				document.getElementById("status").textContent = "You lose!"
+				for(var i = 0; i < wallboundaries.length; i++){
+					if( wallboundaries[i].className.indexOf("example") == -1){
+						wallboundaries[i].className = "boundary youlose";
+					}
+				}
+			}
+		});
 	});
 }
